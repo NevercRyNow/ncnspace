@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1526"/><stop offset=".45" stop-color="#05080f"/><stop offset="1" stop-color="#091426"/>
+    </linearGradient>
+    <radialGradient id="orbA" cx=".25" cy=".3" r=".5">
+      <stop offset="0" stop-color="#c2d7ff" stop-opacity=".20"/><stop offset=".35" stop-color="#6c91e6" stop-opacity=".08"/><stop offset="1" stop-color="#6c91e6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="orbB" cx=".74" cy=".62" r=".48">
+      <stop offset="0" stop-color="#e4edf9" stop-opacity=".10"/><stop offset=".4" stop-color="#9aa9bf" stop-opacity=".06"/><stop offset="1" stop-color="#9aa9bf" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="beam" x1="0" y1="1" x2="1" y2="0">
+      <stop offset=".2" stop-color="#d8e6ff" stop-opacity="0"/><stop offset=".48" stop-color="#f2f8ff" stop-opacity=".07"/><stop offset=".75" stop-color="#d8e6ff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="warm" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d5c4b8" stop-opacity=".08"/><stop offset="1" stop-color="#d5c4b8" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <rect width="1200" height="800" fill="url(#orbA)"/>
+  <rect width="1200" height="800" fill="url(#orbB)"/>
+  <rect width="1200" height="800" fill="url(#warm)"/>
+  <path d="M-100 760 L980 -80 L1120 -80 L40 760Z" fill="url(#beam)"/>
+  <g fill="none" stroke="#cfdeff" opacity=".20">
+    <circle cx="210" cy="250" r="230" stroke-opacity=".22"/>
+    <circle cx="210" cy="250" r="360" stroke-opacity=".12"/>
+    <circle cx="930" cy="580" r="250" stroke-opacity=".13"/>
+    <path d="M0 600C220 480 380 720 660 560S980 470 1200 580" stroke-width="1.2"/>
+  </g>
+  <g opacity=".13" stroke="#e5efff" stroke-width="1">
+    <path d="M0 100H1200M0 200H1200M0 300H1200M0 400H1200M0 500H1200M0 600H1200M0 700H1200"/>
+    <path d="M100 0V800M200 0V800M300 0V800M400 0V800M500 0V800M600 0V800M700 0V800M800 0V800M900 0V800M1000 0V800M1100 0V800"/>
+  </g>
+  <g fill="#dce9ff" opacity=".35">
+    <circle cx="180" cy="180" r="3"/><circle cx="980" cy="260" r="2"/><circle cx="760" cy="690" r="2.5"/>
+  </g>
+</svg>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="180" viewBox="0 0 1200 180">
+  <defs>
+    <linearGradient id="base" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#070b12"/><stop offset=".45" stop-color="#101b30"/><stop offset="1" stop-color="#070b12"/>
+    </linearGradient>
+    <radialGradient id="ice" cx=".27" cy=".52" r=".55">
+      <stop offset="0" stop-color="#a9c4ff" stop-opacity=".55"/><stop offset=".45" stop-color="#5c82d8" stop-opacity=".18"/><stop offset="1" stop-color="#5c82d8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="warm" cx=".76" cy=".38" r=".42">
+      <stop offset="0" stop-color="#d8e5f5" stop-opacity=".28"/><stop offset=".5" stop-color="#9caec8" stop-opacity=".10"/><stop offset="1" stop-color="#9caec8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="beam" x1="0" y1="1" x2="1" y2="0">
+      <stop offset=".28" stop-color="#cfe1ff" stop-opacity="0"/><stop offset=".5" stop-color="#eff6ff" stop-opacity=".28"/><stop offset=".72" stop-color="#cfe1ff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="180" fill="url(#base)"/>
+  <rect width="1200" height="180" fill="url(#ice)"/>
+  <rect width="1200" height="180" fill="url(#warm)"/>
+  <path d="M720 190 L1080 -30 L1130 -30 L770 190Z" fill="url(#beam)"/>
+  <path d="M180 190 L540 -30 L570 -30 L210 190Z" fill="url(#beam)" opacity=".5"/>
+  <g opacity=".18" stroke="#e6efff" stroke-width="1">
+    <path d="M0 44H1200M0 90H1200M0 136H1200"/>
+    <path d="M120 0V180M360 0V180M600 0V180M840 0V180M1080 0V180"/>
+  </g>
+</svg>

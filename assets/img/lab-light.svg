@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <defs>
+    <linearGradient id="base" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e9eef6"/><stop offset=".5" stop-color="#cbd6e5"/><stop offset="1" stop-color="#f4f7fb"/>
+    </linearGradient>
+    <linearGradient id="band" x1="0" y1="1" x2="1" y2="0">
+      <stop offset=".2" stop-color="#ffffff" stop-opacity="0"/><stop offset=".5" stop-color="#ffffff" stop-opacity=".7"/><stop offset=".8" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="blue" cx=".25" cy=".3" r=".5"><stop offset="0" stop-color="#7ea7ea" stop-opacity=".32"/><stop offset="1" stop-color="#7ea7ea" stop-opacity="0"/></radialGradient>
+    <radialGradient id="warm" cx=".76" cy=".68" r=".45"><stop offset="0" stop-color="#d8b6a5" stop-opacity=".38"/><stop offset="1" stop-color="#d8b6a5" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1400" height="900" fill="url(#base)"/>
+  <rect width="1400" height="900" fill="url(#blue)"/>
+  <rect width="1400" height="900" fill="url(#warm)"/>
+  <path d="M-100 920 L780 -60 L920 -60 L40 920Z" fill="url(#band)" opacity=".8"/>
+  <g opacity=".18" stroke="#52657e"><path d="M0 120H1400M0 240H1400M0 360H1400M0 480H1400M0 600H1400M0 720H1400M0 840H1400"/><path d="M120 0V900M240 0V900M360 0V900M480 0V900M600 0V900M720 0V900M840 0V900M960 0V900M1080 0V900M1200 0V900M1320 0V900"/></g>
+  <g fill="none" stroke="#ffffff" opacity=".45"><circle cx="340" cy="280" r="220"/><circle cx="1080" cy="640" r="300"/></g>
+</svg>

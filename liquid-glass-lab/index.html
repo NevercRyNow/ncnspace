@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#07080c">
+<title>Liquid Glass Lab — NCNSPACE</title>
+<meta name="description" content="NCNSPACE Liquid Glass Lab：WebGL2 实时折射、模糊、色散、边缘高光与多层玻璃实验室。">
+<link rel="canonical" href="https://zym-cpu.github.io/ncnspace/liquid-glass-lab/">
+<link rel="icon" href="../assets/img/icon-64.png" type="image/png">
+<link rel="stylesheet" href="../styles.css?v=20261117g">
+<link rel="stylesheet" href="lab.css?v=20261117g">
+</head>
+<body class="lab-page">
+<a class="skip-link" href="#lab-main">跳到主要内容</a>
+
+<header class="lab-header">
+  <a class="lab-brand" href="../" aria-label="返回 NCNSPACE 官网">
+    <span class="brand-mark" aria-hidden="true">N</span>
+    <span class="lab-brand-copy"><b>NCNSPACE</b><small>SPATIAL INTERFACE / LAB</small></span>
+  </a>
+  <div class="lab-header-meta">
+    <span class="lab-pill"><i aria-hidden="true"></i> WebGL2 engine</span>
+    <a href="../">← Back to site</a>
+  </div>
+</header>
+
+<main class="lab-main" id="lab-main">
+  <section class="lab-intro">
+    <div>
+      <p class="section-label"><span>LAB</span>LIQUID GLASS / 01</p>
+      <h1>LIQUID<br>GLASS LAB.</h1>
+    </div>
+    <div class="lab-intro-copy">
+      <p>一个真正运行的 WebGL2 玻璃实验室。背景先渲染到 FBO，玻璃读取上一层的累积场景，计算 SDF、折射、模糊、色散、边缘高光与阴影；两层玻璃通过 scissored 2-blit 合并，不存在同一 framebuffer 同时读写。</p>
+      <div class="lab-live-row">
+        <span class="lab-status" data-lab-status>WEBGL2 / INITIALIZING</span>
+        <span class="lab-mono" data-lab-fps>IDLE / ON DEMAND</span>
+        <span class="lab-mono" data-lab-dpr>DPR —</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="lab-workspace" aria-label="Liquid glass playground">
+    <div class="lab-stage" data-lab-stage>
+      <canvas class="lab-canvas" data-lab-canvas aria-label="可拖动玻璃元素；使用鼠标或手指拖动，悬停观察折射与高光"></canvas>
+      <div class="lab-stage-hud" aria-hidden="true">
+        <span>NCNSPACE / LIQUID GLASS ENGINE</span>
+        <span>2-BLIT LAYERED</span>
+      </div>
+      <div class="lab-stage-hint" data-lab-hint>DRAG THE GLASS / MOVE THE POINTER</div>
+      <div class="lab-fallback" data-lab-fallback hidden>
+        <strong>WEBGL2 UNAVAILABLE</strong>
+        <p>当前浏览器没有可用的 WebGL2 上下文。实验室不会用 CSS 透明度冒充实时折射；请换用支持 WebGL2 的浏览器，或开启硬件加速。</p>
+      </div>
+    </div>
+
+    <aside class="lab-controls" aria-label="Liquid glass parameters">
+      <div class="lab-controls-head">
+        <span class="lab-mono">CONTROL SURFACE</span>
+        <span class="lab-mono">REALTIME UNIFORMS</span>
+      </div>
+
+      <div class="lab-control-block">
+        <label class="lab-control-label" for="lab-surface">TARGET SURFACE</label>
+        <select id="lab-surface" class="lab-select" data-lab-surface>
+          <option value="panel">Titanium panel</option>
+          <option value="nav">Obsidian nav</option>
+          <option value="pill">Ice pill</option>
+          <option value="card">Crystal card</option>
+          <option value="orb">Crystal button</option>
+        </select>
+      </div>
+
+      <div class="lab-control-block">
+        <span class="lab-control-label">MATERIAL</span>
+        <div class="lab-material-buttons" role="group" aria-label="材质预设">
+          <button type="button" data-lab-material="obsidian">Obsidian<small>graphite</small></button>
+          <button type="button" data-lab-material="titanium">Titanium<small>metal</small></button>
+          <button type="button" data-lab-material="ice">Ice<small>ice blue</small></button>
+          <button type="button" data-lab-material="crystal">Crystal<small>prism</small></button>
+        </div>
+      </div>
+
+      <div class="lab-sliders">
+        <label><span>REFRACTION</span><input type="range" min="0" max="100" value="48" data-lab-param="refraction"><output data-lab-value="refraction">0.76</output></label>
+        <label><span>BLUR</span><input type="range" min="0" max="100" value="64" data-lab-param="blur"><output data-lab-value="blur">0.64</output></label>
+        <label><span>CHROMATIC</span><input type="range" min="0" max="100" value="22" data-lab-param="chroma"><output data-lab-value="chroma">0.22</output></label>
+        <label><span>HIGHLIGHT</span><input type="range" min="0" max="100" value="53" data-lab-param="highlight"><output data-lab-value="highlight">0.74</output></label>
+        <label><span>OPACITY</span><input type="range" min="0" max="100" value="57" data-lab-param="opacity"><output data-lab-value="opacity">0.52</output></label>
+        <label><span>RADIUS</span><input type="range" min="0" max="100" value="36" data-lab-param="radius"><output data-lab-value="radius">36%</output></label>
+        <label><span>CURVATURE</span><input type="range" min="0" max="100" value="40" data-lab-param="curvature"><output data-lab-value="curvature">3.6</output></label>
+      </div>
+
+      <div class="lab-control-grid">
+        <div class="lab-control-block">
+          <span class="lab-control-label">BACKGROUND</span>
+          <div class="lab-segment" data-lab-backgrounds role="group" aria-label="背景场景">
+            <button type="button" class="is-active" data-lab-background="spatial">Spatial</button>
+            <button type="button" data-lab-background="desktop">Desktop</button>
+            <button type="button" data-lab-background="library">Library</button>
+            <button type="button" data-lab-background="light">Light</button>
+          </div>
+        </div>
+        <div class="lab-control-block">
+          <label class="lab-control-label" for="lab-quality">QUALITY</label>
+          <select id="lab-quality" class="lab-select" data-lab-quality>
+            <option value="high">High quality</option>
+            <option value="balanced" selected>Balanced</option>
+            <option value="performance">Performance</option>
+            <option value="mobile">Mobile saver</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="lab-actions">
+        <button type="button" class="lab-action" data-lab-theme>LIGHT FIELD</button>
+        <button type="button" class="lab-action" data-lab-reset>RESET SURFACES</button>
+      </div>
+
+      <p class="lab-fineprint">真实参数直接进入 fragment uniforms。拖动玻璃会同时更新折射采样、SDF 形状、press spring 与阴影。无变化时渲染器休眠，不持续空转。</p>
+    </aside>
+  </section>
+
+  <section class="lab-notes">
+    <div><span class="lab-mono">PIPELINE</span><strong>Scene FBO → separable blur → scissored 2-blit → present</strong></div>
+    <div><span class="lab-mono">LICENSE</span><strong>Clean-room WebGL implementation. Reference study: martin65536/liquid-glass-webgl (AGPL-3.0). No AGPL source copied.</strong></div>
+    <div><span class="lab-mono">FALLBACK</span><strong>If WebGL2 is missing, the lab displays a clear fallback notice instead of faking refraction.</strong></div>
+  </section>
+</main>
+
+<script type="module" src="lab.js?v=20261117g"></script>
+</body>
+</html>
