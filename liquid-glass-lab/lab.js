@@ -1,6 +1,6 @@
-import { LiquidGlassEngine } from '../engine/engine.js?v=20261117g';
-import { MATERIALS, QUALITY } from '../engine/materials.js?v=20261117g';
-import { LiquidGlassPanel, LiquidGlassNavbar, LiquidGlassPill, LiquidGlassCard, LiquidGlassButton } from '../engine/components.js?v=20261117g';
+import { LiquidGlassEngine } from '../engine/engine.js?v=20261117i';
+import { MATERIALS, QUALITY } from '../engine/materials.js?v=20261117i';
+import { LiquidGlassPanel, LiquidGlassNavbar, LiquidGlassPill, LiquidGlassCard, LiquidGlassButton } from '../engine/components.js?v=20261117i';
 
 const stage = document.querySelector('[data-lab-stage]');
 const canvas = document.querySelector('[data-lab-canvas]');
@@ -149,16 +149,16 @@ backgroundButtons.forEach((button) => {
     themeButton.textContent = lightField ? 'DARK FIELD' : 'LIGHT FIELD';
     if (mode === 'light') {
       engine.setTheme('light');
-      await engine.setBackground('../assets/img/lab-light.svg?v=20261117g');
+      await engine.setBackground('../assets/img/lab-light.svg?v=20261117i');
     } else if (mode === 'desktop') {
       engine.setTheme('dark');
-      await engine.setBackground('../assets/img/spatial-field.svg?v=20261117g');
+      await engine.setBackground('../assets/img/spatial-field.svg?v=20261117i');
     } else if (mode === 'library') {
       engine.setTheme('dark');
-      await engine.setBackground('../assets/img/nav-field.svg?v=20261117g');
+      await engine.setBackground('../assets/img/nav-field.svg?v=20261117i');
     } else {
       engine.setTheme('dark');
-      await engine.setBackground('../assets/img/stage-field.svg?v=20261117g');
+      await engine.setBackground('../assets/img/stage-field.svg?v=20261117i');
     }
     setStatus(`WEBGL2 / ${mode.toUpperCase()} FIELD`);
   });
@@ -174,7 +174,7 @@ themeButton.addEventListener('click', async () => {
   themeButton.textContent = lightField ? 'DARK FIELD' : 'LIGHT FIELD';
   backgroundButtons.forEach((button) => button.classList.toggle('is-active', button.getAttribute('data-lab-background') === (lightField ? 'light' : 'spatial')));
   engine.setTheme(lightField ? 'light' : 'dark');
-  await engine.setBackground(lightField ? '../assets/img/lab-light.svg?v=20261117g' : '../assets/img/stage-field.svg?v=20261117g');
+  await engine.setBackground(lightField ? '../assets/img/lab-light.svg?v=20261117i' : '../assets/img/stage-field.svg?v=20261117i');
   setStatus(`WEBGL2 / ${lightField ? 'LIGHT' : 'DARK'} FIELD`);
 });
 resetButton.addEventListener('click', () => {

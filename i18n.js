@@ -54,6 +54,9 @@
     '03 / WINDOW INTERACTION': '03 / 窗口交互',
     'LIQUID GLASS': '液态玻璃', 'TYPE': '字体', 'DEVELOPMENT': '开发', 'LOCAL-FIRST': '本地优先',
     'Local-first': '本地优先', '01 / THE SHELL': '01 / 桌面外壳', 'Desktop Mode · 横屏 / 宽屏自适应': '桌面模式 · 横屏 / 宽屏自适应',
+    'Film': '宣传片', 'THE FILM': '宣传片', 'NCNSPACE / FILM': 'NCNSPACE / 宣传片',
+    '30 SEC / SILENT / LOOP': '30 秒 / 无声 / 循环',
+    'A FILM BY NEVERCRYNOW · 1280 × 720 · 30 FPS': 'NEVERCRYNOW 作品 · 1280 × 720 · 30 FPS',
     'A FILM BY NEVERCRYNOW': 'NEVERCRYNOW 作品', 'NOTE': '备注', 'PRIVACY': '隐私', 'LAST UPDATED / 2026.11': '最后更新 / 2026.11',
   };
 
@@ -110,6 +113,8 @@
     '复制': 'Copy', '复制失败': 'Copy failed', '独立作品，与 Apple、Google 无关联。Android 是 Google LLC 的商标；macOS 是 Apple Inc. 的商标。': 'Independent work, not affiliated with Apple or Google. Android is a trademark of Google LLC; macOS is a trademark of Apple Inc.',
     '隐私说明': 'Privacy', '本站不加载第三方脚本、字体或分析服务。': 'This site loads no third-party scripts, fonts or analytics.',
     '你的浏览器不支持视频播放。': 'Your browser does not support video playback.',
+    '30 秒，没有旁白。只有空间、材质与一块屏幕被重新组织的过程。': 'Thirty seconds. No narration. Only space, material and a screen being reorganized.',
+    '一部关于空间、材质与自由的短片。': 'A short film about space, material and freedom.',
     '30 秒无声概念片 · 1280 × 720 · 30 fps': '30-second silent concept film · 1280 × 720 · 30 fps',
     '没有账号，也没有追踪。': 'No accounts. No tracking.',
     '这个网站是静态页面：没有 Cookies、没有分析脚本、没有广告像素，也没有第三方字体。它只从同一台服务器加载页面、图片、字体和安装包。': 'This is a static site: no cookies, analytics, ad pixels or third-party fonts. It loads the page, images, fonts and APK from the same server.',

@@ -1,5 +1,5 @@
-import { LiquidGlassEngine } from './engine.js?v=20261117g';
-import { LiquidGlassPill } from './components.js?v=20261117g';
+import { LiquidGlassEngine } from './engine.js?v=20261117i';
+import { LiquidGlassPill } from './components.js?v=20261117i';
 
 const wrap = document.querySelector('[data-hero-actions]');
 const canvas = wrap?.querySelector('[data-actions-liquid]');
@@ -9,7 +9,7 @@ if (wrap && canvas && buttons.length) {
   const engine = new LiquidGlassEngine(canvas, {
     quality: 'balanced',
     theme: 'dark',
-    background: 'assets/img/action-field.svg?v=20261117g',
+    background: 'assets/img/action-field.svg?v=20261117i',
   });
   wrap._liquidActionsEngine = engine;
 

@@ -100,12 +100,13 @@
   const navLinks = $$('[data-nav] a');
   const chapterLinks = $$('[data-chapter]');
   const chapterIds = chapterLinks.map((link) => link.getAttribute('href').slice(1));
-  const watchedIds = [...new Set([...chapterIds, 'overview', 'features', 'experience', 'development'])];
+  const watchedIds = [...new Set([...chapterIds, 'overview', 'features', 'experience', 'film', 'development'])];
 
   const navSectionMap = {
     overview: 'overview',
     features: 'features',
     experience: 'experience',
+    film: 'film',
     beyond: 'experience',
     control: 'experience',
     visual: 'experience',
@@ -312,9 +313,7 @@
   /* ------------------------------------------------------------------
      Dialogs + lightbox
      ------------------------------------------------------------------ */
-  const filmDialog = $('#film-dialog');
   const privacyDialog = $('#privacy-dialog');
-  const filmVideo = $('#film-video');
 
   function openDialog(dialog) {
     if (!dialog || typeof dialog.showModal !== 'function' || dialog.open) return;
@@ -324,15 +323,10 @@
 
   function closeDialog(dialog) {
     if (!dialog || !dialog.open) return;
-    if (dialog === filmDialog && filmVideo) {
-      filmVideo.pause();
-      try { filmVideo.currentTime = 0; } catch (error) { /* metadata may not be ready */ }
-    }
     dialog.close();
     document.body.classList.remove('dialog-open');
   }
 
-  $$('[data-open-film]').forEach((button) => button.addEventListener('click', () => openDialog(filmDialog)));
   $$('[data-open-privacy]').forEach((button) => button.addEventListener('click', () => openDialog(privacyDialog)));
   $$('dialog').forEach((dialog) => {
     $$('[data-close-dialog]', dialog).forEach((button) => button.addEventListener('click', () => closeDialog(dialog)));
@@ -341,16 +335,48 @@
       if (!document.querySelector('dialog[open]')) document.body.classList.remove('dialog-open');
     });
   });
-  if (filmDialog) {
-    filmDialog.addEventListener('cancel', () => {
-      if (filmVideo) {
-        filmVideo.pause();
-        try { filmVideo.currentTime = 0; } catch (error) { /* metadata may not be ready */ }
-      }
-      document.body.classList.remove('dialog-open');
-    });
-  }
 
+
+
+  /* ------------------------------------------------------------------
+     Homepage film
+     ------------------------------------------------------------------ */
+  const homeFilm = $('[data-home-film]');
+  if (homeFilm) {
+    const stage = homeFilm.closest('[data-film-stage]');
+    const toggle = stage ? $('[data-film-toggle]', stage) : null;
+    const syncFilm = () => {
+      const playing = !homeFilm.paused && !homeFilm.ended;
+      if (stage) stage.classList.toggle('is-playing', playing);
+      if (toggle) {
+        toggle.setAttribute('aria-label', playing ? '暂停宣传片' : '播放宣传片');
+        toggle.hidden = false;
+      }
+    };
+    homeFilm.addEventListener('play', syncFilm);
+    homeFilm.addEventListener('pause', syncFilm);
+    homeFilm.addEventListener('ended', syncFilm);
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        if (homeFilm.paused) homeFilm.play().catch(() => {});
+        else homeFilm.pause();
+      });
+    }
+    syncFilm();
+
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const saveData = navigator.connection && navigator.connection.saveData;
+    if (!reduced && !saveData && 'IntersectionObserver' in window) {
+      const filmObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          if (homeFilm.paused) homeFilm.play().catch(() => {});
+          filmObserver.disconnect();
+        });
+      }, { threshold: 0.42 });
+      filmObserver.observe(stage || homeFilm);
+    }
+  }
 
   /* ------------------------------------------------------------------
      SHA-256 copy

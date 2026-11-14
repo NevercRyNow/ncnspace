@@ -1,14 +1,14 @@
 import {
   createProgram, createTexture, createFramebuffer, createFullscreenQuad,
   createUnitQuad, bindColorTexture, deleteFramebuffer, deleteProgram,
-} from './gl-utils.js?v=20261117g';
-import { Spring } from './spring.js?v=20261117g';
-import { MATERIALS, QUALITY, pickQuality, resolveMaterial } from './materials.js?v=20261117g';
+} from './gl-utils.js?v=20261117i';
+import { Spring } from './spring.js?v=20261117i';
+import { MATERIALS, QUALITY, pickQuality, resolveMaterial } from './materials.js?v=20261117i';
 
 const SHADER_DIR = new URL('./shaders/', import.meta.url);
 
 async function readShader(name) {
-  const response = await fetch(new URL(`${name}?v=20261117g`, SHADER_DIR));
+  const response = await fetch(new URL(`${name}?v=20261117i`, SHADER_DIR));
   if (!response.ok) throw new Error(`Shader ${name} returned ${response.status}`);
   return response.text();
 }

@@ -163,3 +163,10 @@ The glass is not just a translucent CSS card:
 - The fragment shader uses wider bevel normals, roughly 2× the previous lens
   offset, doubled chromatic split, a brighter rim/top-edge term, a stronger
   broad sheen and a darker body for text contrast.
+
+### Homepage film
+
+The 30-second silent film is embedded after the hero (`#film`), with native
+controls, muted loop and an in-view IntersectionObserver autoplay. It is the
+same `assets/film.mp4` that was previously opened in a modal; the modal has been
+removed. The hero and download copy now link to the inline section.

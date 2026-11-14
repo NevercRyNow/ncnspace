@@ -1,5 +1,5 @@
-import { LiquidGlassEngine } from './engine.js?v=20261117g';
-import { LiquidGlassPanel } from './components.js?v=20261117g';
+import { LiquidGlassEngine } from './engine.js?v=20261117i';
+import { LiquidGlassPanel } from './components.js?v=20261117i';
 
 const PARAM_RANGES = {
   refraction: [0, 1.6],

@@ -1,5 +1,5 @@
-import { LiquidGlassEngine } from './engine.js?v=20261117g';
-import { LiquidGlassNavbar } from './components.js?v=20261117g';
+import { LiquidGlassEngine } from './engine.js?v=20261117i';
+import { LiquidGlassNavbar } from './components.js?v=20261117i';
 
 const wrap = document.querySelector('[data-nav-liquid]');
 const canvas = wrap?.querySelector('[data-nav-liquid-canvas]');
@@ -9,7 +9,7 @@ if (wrap && canvas && desktop.matches) {
   const engine = new LiquidGlassEngine(canvas, {
     quality: 'balanced',
     theme: 'dark',
-    background: 'assets/img/nav-field.svg?v=20261117g',
+    background: 'assets/img/nav-field.svg?v=20261117i',
   });
   wrap._liquidNavEngine = engine;
   engine.onReady = () => {
